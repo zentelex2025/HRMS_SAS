@@ -29,7 +29,6 @@ import EmployeeLeaveForm from "./pages/employee/EmployeeLeave";
 import MyAttendance from "./pages/employee/MyAttendance";
 import PayrollManagement from "./pages/employee/Payroll";
 
-
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import LeavesPage from "./pages/admin/LeavesPage";
@@ -63,14 +62,7 @@ function App() {
         <Route path="/admin/leaves" element={<LeavesPage />} />
 
         {/* ✅ Employee Dashboard — Protected, token না থাকলে loginPage এ যাবে */}
-        <Route
-          path="/employee/dashboard"
-          element={
-            <ProtectedRoute>
-              <EmployeeDashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
 
         {/* Other Employee Routes */}
         <Route path="/employee/create" element={<EmployeeForm />} />
@@ -87,7 +79,7 @@ function App() {
         <Route path="/manage-employee" element={<ManageEmployee />} />
         <Route path="/hr-dashboard" element={<HRDashboard />} />
         <Route path="/resignation" element={<ResignationForm />} />
-      
+
         {/* 404 Page */}
         <Route
           path="*"

@@ -1,7 +1,3 @@
-// ================================================================
-//  routes/employeeRoutes.js — All API Routes
-// ================================================================
-
 const express = require("express");
 const router = express.Router();
 const uploadFields = require("./middleware/uploads");
@@ -12,7 +8,6 @@ const {
   changePassword,
   deleteEmployee,
 } = require("../controllers/employeeController2");
-
 
 // GET    /api/employees        — সব employee list
 router.get("/employees", getAllEmployees);

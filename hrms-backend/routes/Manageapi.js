@@ -1,10 +1,5 @@
-// ================================================================
-//  routes/ManageApi.js
-//  server.js এর সব route এখানে — endpoints হুবহু same
-// ================================================================
-
-const express            = require("express");
-const router             = express.Router();
+const express = require("express");
+const router = express.Router();
 const EmployeeController = require("../controllers/employeeController");
 
 // ── ১. সকল Employee দেখা ──

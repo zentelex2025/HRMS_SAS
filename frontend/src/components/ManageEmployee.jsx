@@ -55,8 +55,10 @@ const ManageEmployee = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role: selectedRole }),
       });
+
       const data = await res.json();
-      if (data.success) {
+
+      if (data) {
         localStorage.setItem("role", selectedRole);
         localStorage.setItem("user", JSON.stringify(data.user || {}));
 
