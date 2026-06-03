@@ -9,6 +9,7 @@ import {
 
 const router = express.Router();
 
+// attendance/
 router.get("/", getAttendance);
 router.post("/create", createAttendance);
 router.get("/get-by-id/:id", getAttendanceById);
