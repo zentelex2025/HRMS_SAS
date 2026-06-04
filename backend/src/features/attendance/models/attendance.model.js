@@ -11,7 +11,7 @@ const Attendance = sequelize.define(
     },
 
     employee_name: {
-      type: DataTypes.STRING(150),
+      type: DataTypes.STRING(50),
       // allowNull: true,
     },
 

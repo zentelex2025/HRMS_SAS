@@ -1,6 +1,9 @@
 import {
   addAttendance,
   getAllAttendance,
+  getUserAttendanceById,
+  getUserFromToTillByDate,
+  updateUserById,
 } from "../services/attendance.service.js";
 
 export const getAttendance = async (req, res) => {
@@ -9,8 +12,14 @@ export const getAttendance = async (req, res) => {
 };
 export const createAttendance = async (req, res) => {
   const BODY_DATA = req.body;
-  return res.send(addAttendance(BODY_DATA));
+  res.send(await addAttendance(BODY_DATA));
 };
-export const getAttendanceById = async () => {};
-export const getAttendanceFromTill = () => {};
-export const editAttendanceById = () => {};
+export const getAttendanceById = async (req, res) => {
+  res.send(await getUserAttendanceById(req.params.id));
+};
+export const getAttendanceFromTill = async (req, res) => {
+  res.send(await getUserFromToTillByDate(req.query));
+};
+export const editAttendanceById = async (req, res) => {
+  res.send(await updateUserById(req.params.id, req.body));
+};

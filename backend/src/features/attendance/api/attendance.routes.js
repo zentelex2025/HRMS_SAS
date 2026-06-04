@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/", getAttendance);
 router.post("/create", createAttendance);
 router.get("/get-by-id/:id", getAttendanceById);
-router.get("/", getAttendanceFromTill);
-router.put("/:id", editAttendanceById);
+router.get("/range", getAttendanceFromTill);
+router.patch("/update/:id", editAttendanceById);
 
 export default router;
