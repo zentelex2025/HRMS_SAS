@@ -13,6 +13,12 @@ const InterviewRound2 = sequelize.define(
     candidate_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "interview_candidates",
+        key: "id",
+      },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
 
     grade_domain: {
@@ -37,6 +43,10 @@ const InterviewRound2 = sequelize.define(
 
     comment_round2: {
       type: DataTypes.TEXT,
+    },
+    candidate_status: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
     },
   },
   {

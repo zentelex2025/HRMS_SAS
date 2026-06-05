@@ -7,11 +7,13 @@ import {
   getInterviewerById,
   updateInterviewerById,
 } from "../controllers/interview.controllers.js";
+import { env } from "../config/config.js";
 
-router.get("/:id", getInterviewerById);
-router.get("/get-all", getAllInterviewer);
-router.post("/add", addInterviewer);
-router.put("/update/:id", updateInterviewerById);
-router.delete("/delete/:id", deleteInterviewerById);
+// /interview
+router.get(`/:${env.id}`, getInterviewerById);
+router.get("/", getAllInterviewer);
+router.post("/", addInterviewer);
+router.patch(`/:${env.id}`, updateInterviewerById);
+router.delete(`/:${env.id}`, deleteInterviewerById);
 
 export default router;
