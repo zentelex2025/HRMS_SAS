@@ -1,106 +1,93 @@
 import js from "@eslint/js";
 import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import { defineConfig, globalIgnores } from "eslint/config";
+import pluginReact from "eslint-plugin-react";
+import importPlugin from "eslint-plugin-import";
+import { defineConfig } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
   {
     files: ["**/*.{js,jsx}"],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
+
+    plugins: {
+      js,
+      react: pluginReact,
+      import: importPlugin,
+    },
+
     languageOptions: {
       globals: globals.browser,
-      parserOptions: { ecmaFeatures: { jsx: true } },
-    },
-  },
-
-  {
-    plugins: {
-      boundaries,
-    },
-
-    settings: {
-      "boundaries/elements": [
-        {
-          type: "app",
-          pattern: "src/app/*",
-        },
-        {
-          type: "shared",
-          pattern: "src/shared/*",
-        },
-        {
-          type: "auth",
-          pattern: "src/features/auth/*",
-        },
-        {
-          type: "employee",
-          pattern: "src/features/employee/*",
-        },
-        {
-          type: "attendance",
-          pattern: "src/features/attendance/*",
-        },
-        {
-          type: "interview",
-          pattern: "src/features/interview/*",
-        },
-      ],
     },
 
     rules: {
-      "boundaries/element-types": [
+      "import/no-restricted-paths": [
         "error",
         {
-          default: "disallow",
-
-          rules: [
-            // APP
-            {
-              from: "app",
-              allow: [
-                "app",
-                "shared",
-                "auth",
-                "employee",
-                "attendance",
-                "interview",
-              ],
-            },
-
-            // SHARED
-            {
-              from: "shared",
-              allow: ["shared"],
-            },
-
+          zones: [
+            // =========================
             // AUTH
+            // =========================
+
             {
-              from: "auth",
-              allow: ["auth", "shared"],
+              target: "./src/features/auth",
+              from: "./src/features",
+              except: ["./auth"],
             },
 
+            // =========================
             // EMPLOYEE
+            // =========================
+
             {
-              from: "employee",
-              allow: ["employee", "shared"],
+              target: "./src/features/employee",
+              from: "./src/features",
+              except: ["./employee"],
             },
 
+            // =========================
             // ATTENDANCE
+            // =========================
+
             {
-              from: "attendance",
-              allow: ["attendance", "shared"],
+              target: "./src/features/attendance",
+              from: "./src/features",
+              except: ["./attendance"],
             },
 
+            // =========================
             // INTERVIEW
+            // =========================
+
             {
-              from: "interview",
-              allow: ["interview", "shared"],
+              target: "./src/features/interview",
+              from: "./src/features",
+              except: ["./interview"],
+            },
+
+            // =========================
+            // SHARED CANNOT IMPORT FEATURES
+            // =========================
+
+            {
+              target: "./src/shared",
+              from: "./src/features",
+            },
+
+            // =========================
+            // SHARED CANNOT IMPORT APP
+            // =========================
+
+            {
+              target: "./src/shared",
+              from: "./src/app",
+            },
+
+            // =========================
+            // FEATURES CANNOT IMPORT APP
+            // =========================
+
+            {
+              target: "./src/features",
+              from: "./src/app",
             },
           ],
         },
