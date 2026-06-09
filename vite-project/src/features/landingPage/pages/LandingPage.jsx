@@ -3,7 +3,7 @@ import { Header, HeroFirst, HeroSecond } from "../index";
 
 const LandingPage = () => {
   return (
-    <main className="container">
+    <main>
       <Header />
       <HeroFirst />
       <HeroSecond />
