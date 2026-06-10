@@ -1,0 +1,161 @@
+.module-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.247);
+}
+
+.module-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.module-card__title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+}
+
+.module-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: #eaf2ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    font-size: 20px;
+    color: #2563eb;
+  }
+}
+
+.module-card__action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+
+  background:
+    conic-gradient(#9233ea49 0 0) var(--p, 0) / var(--p, 0) no-repeat,
+    #f8f0ff;
+
+  transition:
+    0.4s,
+    background-position 0s;
+
+  span {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9333ea;
+  }
+
+  small {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  &:hover {
+    --p: 100%;
+  }
+}
+
+.module-card__plus {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #9333ea;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.stat {
+  padding: 14px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  h4 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    font-size: 12px;
+    color: #4b5563;
+  }
+}
+
+.stat--green {
+  background: #eef9f1;
+
+  &:hover {
+    background: #d3fcdf;
+  }
+}
+
+.stat--red {
+  background: #fbefef;
+
+  &:hover {
+    background: #fed5d5;
+  }
+}
+
+.stat--blue {
+  background: #edf4fb;
+  &:hover {
+    background: #daecff;
+  }
+}
+
+.stat--yellow {
+  background: #faf8e8;
+  &:hover {
+    background: #f9f4d2;
+  }
+}
+
+.stat--purple {
+  background: #f3ecfb;
+
+  &:hover {
+    background: #e7d5fd;
+  }
+
+  h4 {
+    color: #7e22ce;
+  }
+}
+
+.link-class_txtNone {
+  text-decoration: none;
+  color: inherit;
+}

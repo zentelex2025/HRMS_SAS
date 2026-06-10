@@ -1,4 +1,10 @@
 import "../components/heroSecond.scss";
+import {
+  Attendance_card,
+  Employee_card,
+  OtherFeatures_card,
+  Salary_card,
+} from "./ModuleCard";
 
 const cards = [
   {
@@ -45,15 +51,10 @@ const HeroSecond = () => {
         <h2>Our Core Modules</h2>
 
         <div className="module-grid">
-          {cards.map((card) => (
-            <div className="module-card" key={card.title}>
-              <h3>{card.title}</h3>
-
-              <p>{card.description}</p>
-
-              <button>{card.button}</button>
-            </div>
-          ))}
+          <Employee_card />
+          <Salary_card />
+          <Attendance_card />
+          <OtherFeatures_card />
         </div>
       </div>
     </section>

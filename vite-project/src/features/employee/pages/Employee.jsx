@@ -1,5 +1,11 @@
+import NewEmployee from "../components/NewEmployee";
+
 const Employee = () => {
-  return <div>Employee</div>;
+  return (
+    <main>
+      <NewEmployee />
+    </main>
+  );
 };
 
 export default Employee;
