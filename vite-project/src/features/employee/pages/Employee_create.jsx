@@ -1,11 +1,11 @@
 import NewEmployee from "../components/NewEmployee";
 
-const Employee = () => {
+const Employee_create = () => {
   return (
-    <main>
+    <main className="container">
       <NewEmployee />
     </main>
   );
 };
 
-export default Employee;
+export default Employee_create;

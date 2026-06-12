@@ -1,13 +1,13 @@
 import React from "react";
 
-export const BasicInfo = () => {
+export const BasicInfo = ({ className }) => {
   return (
-    <section>
+    <section className={className}>
       <div>
         <h2>Basic Info</h2>
 
         <div>
-          <label>Trade ID</label>
+          <label>Employee ID</label>
           <input type="text" />
         </div>
 
